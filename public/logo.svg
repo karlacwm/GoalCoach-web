@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="#ffffff" />
+
+  <defs>
+    <!-- Mask for Bamboo Stem Cutout from Panda Head White Body -->
+    <mask id="stem-mask">
+      <!-- Everything visible by default -->
+      <rect width="1000" height="1000" fill="#ffffff" />
+      <!-- Dark stem cutout line passing across the white body -->
+      <path d="M 584 835 C 670 690 735 595 810 550 L 805 572 C 730 615 658 720 595 850 Z" fill="#000000" />
+    </mask>
+  </defs>
+
+  <!-- ================= PANDA EARS (DARK GREEN #053b1e) ================= -->
+  <!-- Left Ear -->
+  <ellipse cx="255" cy="405" rx="145" ry="135" transform="rotate(-36 255 405)" fill="#053b1e" />
+
+  <!-- Right Ear -->
+  <ellipse cx="535" cy="272" rx="115" ry="105" transform="rotate(22 535 272)" fill="#053b1e" />
+
+  <!-- ================= LOWER DARK GREEN BODY BASE ================= -->
+  <!-- Under-chin and left shoulder swoop creating the heart/crescent silhouette -->
+  <path d="M 135 510 
+           C 105 605 130 705 210 775 
+           C 290 845 420 875 552 870 
+           C 538 805 515 760 460 710 
+           C 340 680 205 630 135 510 Z" 
+        fill="#053b1e" />
+
+  <!-- ================= BAMBOO STEM & RIGHT SHOULDER (LIGHT GREEN #52a912) ================= -->
+  <!-- Right curving stalk and leaf sheath wrapping under the chin -->
+  <path d="M 552 870
+           C 575 845 615 780 625 745
+           C 600 755 565 770 545 745
+           C 580 725 640 670 685 585
+           C 715 530 690 415 675 305
+           C 700 375 755 435 785 535
+           C 825 650 780 755 690 825
+           C 655 852 605 870 552 870 Z" 
+        fill="#52a912" />
+
+  <!-- ================= PANDA MAIN HEAD (CREAM WHITE #fbf8eb) ================= -->
+  <path mask="url(#stem-mask)" 
+        d="M 170 535
+           C 165 410 270 295 440 282
+           C 615 268 725 385 735 535
+           C 745 660 675 790 575 860
+           C 515 780 430 735 340 705
+           C 240 670 175 625 170 535 Z" 
+        fill="#fbf8eb" />
+
+  <!-- ================= BAMBOO BRANCH LINE (BLACK OVERLAY) ================= -->
+  <!-- Branch slit cutting near the right edge of the face into the stem -->
+  <path d="M 708 605 C 740 590 785 565 810 550 C 785 562 745 580 752 588 C 730 598 715 603 708 605 Z" fill="#000000" />
+
+<!-- ================= BAMBOO LEAVES (LIGHT GREEN #52a912) ================= -->
+  <!-- Fully Refined and Flowing Top-left upright Leaf -->
+    <path d="M 698 300 
+         C 675 240 648 162 622 110
+         C 630 112 638 115 645 118
+         C 680 152 745 220 762 308
+         L 698 300 Z"
+      fill="#52a912" />
+
+  <!-- Fully Refined and Completed Top-right spreading Leaf -->
+    <path d="M 776 394 
+         C 788 340 828 268 941 210
+         C 938 215 936 220 934 225
+         C 912 290 862 380 794 407
+         C 786 405 780 401 776 394 Z"
+      fill="#52a912" />
+
+  <!-- ================= FACIAL FEATURES (DARK GREEN #053b1e) ================= -->
+
+  <!-- Left Eye Patch (Slanted oval teardrop) -->
+  <ellipse cx="355" cy="505" rx="90" ry="72" transform="rotate(-62 355 505)" fill="#053b1e" />
+
+  <!-- Right Eye Patch (Smaller, steeper angle) -->
+  <ellipse cx="618" cy="442" rx="72" ry="52" transform="rotate(43 618 442)" fill="#053b1e" />
+
+  <!-- Left Pupil (Cream White Highlight) -->
+  <ellipse cx="380" cy="488" rx="28" ry="24" transform="rotate(18 380 488)" fill="#fbf8eb" />
+  <!-- Left Pupil Inner Reflection Cutout -->
+  <circle cx="388" cy="492" r="16.5" fill="#053b1e" />
+
+  <!-- Right Pupil (Cream White Highlight) -->
+  <ellipse cx="600" cy="435" rx="22" ry="19" transform="rotate(-15 600 435)" fill="#fbf8eb" />
+  <!-- Right Pupil Inner Reflection Cutout -->
+  <circle cx="595" cy="438" r="13" fill="#053b1e" />
+
+  <!-- Nose (Rounded triangular drop) -->
+  <path d="M 522 512 
+           C 548 506 568 514 582 528 
+           C 594 540 588 554 570 557 
+           C 545 561 515 558 497 544 
+           C 488 534 500 517 522 512 Z" 
+        fill="#053b1e" />
+
+  <!-- Smiling Mouth -->
+  <path d="M 445 598 
+           C 490 636 572 638 610 575 
+           C 572 618 488 614 445 598 Z" 
+        fill="#053b1e" />
+</svg>

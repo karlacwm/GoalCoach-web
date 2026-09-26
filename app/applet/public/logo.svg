@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="gPandaDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#144626" />
+      <stop offset="100%" stop-color="#082914" />
+    </linearGradient>
+    <linearGradient id="gLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#62ba1a" />
+      <stop offset="100%" stop-color="#3d890f" />
+    </linearGradient>
+    <linearGradient id="gStem" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4ea612" />
+      <stop offset="100%" stop-color="#0d3b1e" />
+    </linearGradient>
+  </defs>
+
+  {/* Left Ear */}
+  <ellipse cx="38" cy="46" rx="22" ry="24" transform="rotate(-25 38 46)" fill="url(#gPandaDark)" />
+
+  {/* Right Ear */}
+  <ellipse cx="114" cy="40" rx="18" ry="21" transform="rotate(22 114 40)" fill="url(#gPandaDark)" />
+
+  {/* Head Base */}
+  <path
+    d="M 40 122 C 24 100 24 70 44 52 C 64 36 106 36 126 58 C 140 74 138 104 124 122 C 106 142 56 142 40 122 Z"
+    fill="#FCFCF9"
+    stroke="#E2EFE0"
+    stroke-width="2"
+  />
+
+  {/* Left Eye Patch */}
+  <path
+    d="M 44 80 C 42 66 56 60 67 67 C 75 72 76 86 68 95 C 60 104 46 96 44 80 Z"
+    fill="url(#gPandaDark)"
+  />
+  {/* Left Eye Pupil & Gleam */}
+  <circle cx="58" cy="78" r="4.5" fill="#FFFFFF" />
+  <circle cx="61" cy="76" r="2" fill="#FFFFFF" />
+
+  {/* Right Eye Patch */}
+  <path
+    d="M 94 68 C 86 62 100 55 108 63 C 116 70 115 84 107 92 C 99 99 90 91 94 68 Z"
+    fill="url(#gPandaDark)"
+  />
+  {/* Right Eye Pupil & Gleam */}
+  <circle cx="103" cy="74" r="4.5" fill="#FFFFFF" />
+  <circle cx="106" cy="72" r="2" fill="#FFFFFF" />
+
+  {/* Nose */}
+  <ellipse cx="80" cy="92" rx="8" ry="5.5" fill="url(#gPandaDark)" />
+
+  {/* Cheerful Smile */}
+  <path
+    d="M 72 102 C 76 110 86 110 90 102"
+    stroke="url(#gPandaDark)"
+    stroke-width="3"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  {/* Bamboo Stalk (on top of face) */}
+  <path
+    d="M 92 144 C 102 134 122 114 125 86 C 128 62 118 40 112 30"
+    stroke="url(#gStem)"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+
+  {/* Upper Bamboo Leaf 1 */}
+  <path
+    d="M 114 34 C 120 18 138 8 148 12 C 150 28 134 44 120 40 Z"
+    fill="url(#gLeaf)"
+  />
+
+  {/* Bamboo Leaf 2 */}
+  <path
+    d="M 122 46 C 134 38 152 42 158 52 C 154 66 136 70 124 58 Z"
+    fill="url(#gLeaf)"
+  />
+
+  {/* Lower Bamboo Leaf 3 */}
+  <path
+    d="M 120 98 C 134 104 148 118 144 132 C 130 134 116 122 114 108 Z"
+    fill="url(#gLeaf)"
+  />
+</svg>

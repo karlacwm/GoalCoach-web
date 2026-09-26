@@ -1,0 +1,6 @@
+{
+  "name": "GoalCoach - Adaptive AI Language Coach",
+  "description": "State-driven adaptive language learning for goal-oriented professionals and institutions. Starting with Chinese.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
