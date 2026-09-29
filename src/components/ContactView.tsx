@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Send, CheckCircle2, Copy, Check, ExternalLink } from 'lucide-react';
 import { GoalCoachPanda } from './Logo';
 
 export const ContactView: React.FC = () => {
@@ -8,10 +8,30 @@ export const ContactView: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isSent, setIsSent] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const primaryEmail = 'wcheung@student.42heilbronn.de';
+  const ccEmail = 'wehan@student.42heilbronn.de';
+
+  const emailSubject = `[GoalCoach ${role.toUpperCase()}] Inquiry from ${name || 'User'}`;
+  const emailBody = `Name: ${name}\nEmail: ${email}\nRole: ${role}\n\nMessage:\n${message}`;
+
+  const mailtoHref = `mailto:${primaryEmail}?cc=${encodeURIComponent(ccEmail)}&subject=${encodeURIComponent(
+    emailSubject
+  )}&body=${encodeURIComponent(emailBody)}`;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Launch default email client
+    window.location.href = mailtoHref;
     setIsSent(true);
+  };
+
+  const handleCopy = () => {
+    const fullText = `To: ${primaryEmail}\nCC: ${ccEmail}\nSubject: ${emailSubject}\n\n${emailBody}`;
+    navigator.clipboard.writeText(fullText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
   };
 
   return (
@@ -27,17 +47,17 @@ export const ContactView: React.FC = () => {
         <div className="text-xs sm:text-sm text-[#41624c] flex flex-wrap items-center justify-center gap-2">
           <span>Direct Inquiries:</span>
           <a
-            href="mailto:wehan@student.42heilbronn.de"
-            className="text-[#0d3b1e] font-semibold underline hover:text-[#4ea612] transition-colors"
-          >
-            wehan@student.42heilbronn.de
-          </a>
-          <span aria-hidden="true">&middot;</span>
-          <a
             href="mailto:wcheung@student.42heilbronn.de"
             className="text-[#0d3b1e] font-semibold underline hover:text-[#4ea612] transition-colors"
           >
             wcheung@student.42heilbronn.de
+          </a>
+          <span aria-hidden="true">&middot;</span>
+          <a
+            href="mailto:wehan@student.42heilbronn.de"
+            className="text-[#0d3b1e] font-semibold underline hover:text-[#4ea612] transition-colors"
+          >
+            wehan@student.42heilbronn.de
           </a>
         </div>
       </div>
@@ -45,26 +65,50 @@ export const ContactView: React.FC = () => {
       {/* Cute Bamboo Mailbox Card */}
       <div className="bg-white/95 backdrop-blur-sm border border-[#cbe1c7] rounded-3xl p-6 sm:p-8 shadow-sm">
         {isSent ? (
-          <div className="text-center py-8 space-y-4">
+          <div className="text-center py-6 space-y-4">
             <div className="w-14 h-14 rounded-full bg-[#eef7ea] text-[#4ea612] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-[#0d3b1e]">
               Thank you, {name || 'friend'}!
             </h3>
-            <p className="text-xs sm:text-sm text-[#466551] max-w-sm mx-auto">
-              We received your message and will reply within 24 hours.
+            <p className="text-xs sm:text-sm text-[#466551] max-w-md mx-auto">
+              Your default email client should open with your message addressed to{' '}
+              <strong className="text-[#0d3b1e]">{primaryEmail}</strong> and{' '}
+              <strong className="text-[#0d3b1e]">{ccEmail}</strong>.
             </p>
-            <button
-              onClick={() => {
-                setIsSent(false);
-                setName('');
-                setMessage('');
-              }}
-              className="px-4 py-2 text-xs font-bold text-[#0d3b1e] bg-[#eef7ea] rounded-xl hover:bg-[#e2f1de] transition-colors cursor-pointer"
-            >
-              Send Another Message
-            </button>
+
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <a
+                href={mailtoHref}
+                className="px-4 py-2 text-xs font-bold text-white bg-[#0d3b1e] rounded-xl hover:bg-[#154e28] transition-colors inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Re-open Email App</span>
+              </a>
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="px-4 py-2 text-xs font-bold text-[#0d3b1e] bg-[#eef7ea] rounded-xl hover:bg-[#e2f1de] transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-[#4ea612]" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? 'Copied to Clipboard!' : 'Copy Message Text'}</span>
+              </button>
+            </div>
+
+            <div className="pt-4 border-t border-[#e2f1de]">
+              <button
+                onClick={() => {
+                  setIsSent(false);
+                  setName('');
+                  setMessage('');
+                  setEmail('');
+                }}
+                className="text-xs font-semibold text-[#4e6c58] hover:text-[#0d3b1e] underline transition-colors cursor-pointer"
+              >
+                Write Another Message
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -165,13 +209,24 @@ export const ContactView: React.FC = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-3 bg-[#0d3b1e] hover:bg-[#154e28] text-white text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-xs"
-            >
-              <span>Send Message</span>
-              <Send className="w-3.5 h-3.5" />
-            </button>
+            <div className="space-y-2">
+              <button
+                type="submit"
+                className="w-full py-3 bg-[#0d3b1e] hover:bg-[#154e28] text-white text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-xs"
+              >
+                <span>Send Message</span>
+                <Send className="w-3.5 h-3.5" />
+              </button>
+
+              <div className="text-center">
+                <a
+                  href={mailtoHref}
+                  className="text-[11px] text-[#4e6c58] hover:text-[#0d3b1e] underline transition-colors"
+                >
+                  Or click here to open directly in your mail app
+                </a>
+              </div>
+            </div>
           </form>
         )}
       </div>
