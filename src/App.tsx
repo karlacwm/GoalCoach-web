@@ -34,7 +34,7 @@ export default function App() {
         )}
 
         {currentPage === 'demo' && (
-          <AppDemoView />
+          <AppDemoView onNavigate={handleNavigate} />
         )}
 
         {currentPage === 'services' && (
